@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".donnee_admin">
+
+
+
+
+    <EditText
+        android:layout_marginTop="200dp"
+        android:id="@+id/matricule"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="رقم التاجير"/>
+
+
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="اسم الكامل"/>
+
+
+
+    <EditText
+        android:id="@+id/type_m"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="الاطار"/>
+
+    <Button
+        android:id="@+id/binsert"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="الاضافة" />
+
+
+    <Button
+        android:id="@+id/bdelete"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="مسح" />
+
+    <Button
+        android:id="@+id/bupdate"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="تحديث" />
+
+
+
+</LinearLayout>

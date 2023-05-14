@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/HP/OneDrive/Bureau/PP/app/src/main/res/layout/activity_acueil_admin.xml" value="0.11388888888888889" />
+        <entry key="..\:/Users/HP/OneDrive/Bureau/PP/app/src/main/res/layout/activity_donnee_admin.xml" value="0.25" />
+        <entry key="..\:/Users/HP/OneDrive/Bureau/PP/app/src/main/res/layout/activity_login_employees.xml" value="0.19947916666666668" />
+        <entry key="..\:/Users/HP/pp/app/src/main/res/drawable/costum_editext.xml" value="0.1" />
+        <entry key="..\:/Users/HP/pp/app/src/main/res/drawable/ic_baseline_vpn_key_24.xml" value="0.1995" />
+        <entry key="..\:/Users/HP/pp/app/src/main/res/layout/activity_home_admin.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/pp/app/src/main/res/layout/activity_home_employes.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/HP/pp/app/src/main/res/layout/activity_inscription_admin.xml" value="0.22" />
+        <entry key="..\:/Users/HP/pp/app/src/main/res/layout/activity_inscription_employes.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/HP/pp/app/src/main/res/layout/activity_login_admin.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/pp/app/src/main/res/layout/activity_login_employees.xml" value="0.18" />
+        <entry key="..\:/Users/HP/pp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/ProBook/AndroidStudioProjects/PP/app/src/main/res/drawable/bottom_background.xml" value="0.128" />
+        <entry key="..\:/Users/ProBook/AndroidStudioProjects/PP/app/src/main/res/layout/act1.xml" value="0.22" />
+        <entry key="..\:/Users/ProBook/AndroidStudioProjects/PP/app/src/main/res/layout/activity_acueil_admin.xml" value="0.16018518518518518" />
+        <entry key="..\:/Users/ProBook/AndroidStudioProjects/PP/app/src/main/res/layout/activity_acueil_employer.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/ProBook/AndroidStudioProjects/PP/app/src/main/res/layout/activity_home_employes.xml" value="0.18" />
+        <entry key="..\:/Users/ProBook/AndroidStudioProjects/PP/app/src/main/res/layout/activity_message_admin.xml" value="0.2111111111111111" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
