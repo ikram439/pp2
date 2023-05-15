@@ -1,9 +1,13 @@
 package com.example.pp;
 
 public class Employee {
+    int Id;
     String matricule;
     String name;
     String type;
+
+    public Employee() {
+    }
 
     public Employee(String matricule, String name, String type) {
         this.matricule = matricule;
@@ -33,5 +37,13 @@ public class Employee {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
     }
 }
