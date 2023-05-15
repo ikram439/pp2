@@ -1,4 +1,4 @@
-package com.example.pp;
+package com.example.pp.activities;
 
         import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,10 @@ package com.example.pp;
         import android.widget.EditText;
         import android.widget.Toast;
 
-public class Absance extends AppCompatActivity {
+        import com.example.pp.MyBaseDonnee;
+        import com.example.pp.R;
+
+public class AbsenceActivity extends AppCompatActivity {
     EditText debut,fin,excuse;
     Button envoyer;
     MyBaseDonnee bd;
@@ -31,13 +34,13 @@ public class Absance extends AppCompatActivity {
                 String exc = excuse.getText().toString();
 
                 if(de.equals("") || fi.equals("") || exc.equals("")) {
-                    Toast.makeText(Absance.this,"Please enter all fields",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AbsenceActivity.this,"Please enter all fields",Toast.LENGTH_SHORT).show();
                 } else {
                     boolean result = bd.demandeConge(de,fi,exc);
                     if (result ==true) {
-                        Toast.makeText(Absance.this, "Demande envoyée avec succès", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AbsenceActivity.this, "Demande envoyée avec succès", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(Absance.this, "Erreur lors de l'envoi de la demande", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AbsenceActivity.this, "Erreur lors de l'envoi de la demande", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

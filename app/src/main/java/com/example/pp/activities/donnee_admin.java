@@ -1,17 +1,16 @@
-package com.example.pp;
+package com.example.pp.activities;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.example.pp.model.Employee;
+import com.example.pp.MyBaseDonnee;
+import com.example.pp.R;
 
 public class donnee_admin extends AppCompatActivity {
     EditText matricule, name, type_m;

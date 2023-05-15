@@ -1,4 +1,4 @@
-package com.example.pp;
+package com.example.pp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import com.example.pp.R;
 
 public class home_admin extends AppCompatActivity {
     ImageButton home,donnee,message,profil,deconnexion;

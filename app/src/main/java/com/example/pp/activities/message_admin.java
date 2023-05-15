@@ -1,14 +1,16 @@
-package com.example.pp;
+package com.example.pp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class acueil_employer extends AppCompatActivity {
+import com.example.pp.R;
+
+public class message_admin extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_acueil_employer);
+        setContentView(R.layout.activity_message_admin);
     }
 }

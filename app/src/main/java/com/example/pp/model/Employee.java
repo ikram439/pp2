@@ -1,4 +1,4 @@
-package com.example.pp;
+package com.example.pp.model;
 
 public class Employee {
     int Id;

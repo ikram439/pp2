@@ -1,4 +1,4 @@
-package com.example.pp;
+package com.example.pp.activities;
 
 public class DemandeConge {
     int id;

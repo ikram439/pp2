@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/img3"
-    tools:context=".login_employees"
+    tools:context=".activities.login_employees"
 
     >
 

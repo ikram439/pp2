@@ -1,9 +1,11 @@
-package com.example.pp;
+package com.example.pp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.Button;
+
+import com.example.pp.R;
 
 public class acueil_admin extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.pp;
+package com.example.pp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -6,6 +6,8 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.pp.R;
 
 public class donnee_employes extends AppCompatActivity {
 
@@ -21,7 +23,7 @@ public class donnee_employes extends AppCompatActivity {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Conge.class);
+                Intent intent = new Intent(getApplicationContext(), CongeActivity.class);
                 startActivity(intent);
             }
         });
@@ -29,7 +31,7 @@ public class donnee_employes extends AppCompatActivity {
         cardView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Absance.class);
+                Intent intent = new Intent(getApplicationContext(), AbsenceActivity.class);
                 startActivity(intent);
             }
         });

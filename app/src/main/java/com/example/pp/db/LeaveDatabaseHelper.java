@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.pp.Employee;
+import com.example.pp.model.Employee;
 import com.example.pp.model.Absence;
 import com.example.pp.model.Leave;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LeaveDatabaseHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "leave_management.db";
+    private static final String DATABASE_NAME = "leave_management";
     private static final int DATABASE_VERSION = 1;
 
     // Table names
