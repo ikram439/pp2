@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.pp.R;
 
-public class acueil_employer extends AppCompatActivity {
+public class demande_absance extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_acueil_employer);
+        setContentView(R.layout.activity_demande_absance);
     }
 }

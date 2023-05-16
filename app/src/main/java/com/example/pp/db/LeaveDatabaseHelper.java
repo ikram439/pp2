@@ -2,9 +2,11 @@ package com.example.pp.db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.preference.PreferenceManager;
 
 import com.example.pp.model.Employee;
 import com.example.pp.model.Absence;
@@ -31,9 +33,14 @@ public class LeaveDatabaseHelper extends SQLiteOpenHelper {
 
     // Administrator table columns
     private static final String COLUMN_ADMINISTRATOR_NAME = "administrator_name";
+    private static final String COLUMN_ADMINISTRATOR_EMAIL = "administrator_email";
+    private static final String COLUMN_ADMINISTRATOR_PASSWORD = "administrator_password";
 
     // Leave table columns
     private static final String COLUMN_EMPLOYEE_ID = "employee_id";
+    private static final String COLUMN_EMPLOYEE_EMAIL = "employee_email";
+    private static final String COLUMN_EMPLOYEE_PASSWORD = "employee_password";
+
     private static final String COLUMN_LEAVE_TYPE = "leave_type";
     private static final String COLUMN_START_DATE = "start_date";
     private static final String COLUMN_END_DATE = "end_date";
@@ -42,9 +49,10 @@ public class LeaveDatabaseHelper extends SQLiteOpenHelper {
     // Absence table columns
     private static final String COLUMN_ABSENCE_DATE = "absence_date";
     private static final String COLUMN_ABSENCE_REASON = "absence_reason";
-
+    Context context;
     public LeaveDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context=context;
     }
 
     @Override
@@ -52,13 +60,17 @@ public class LeaveDatabaseHelper extends SQLiteOpenHelper {
         // Create employee table
         String createEmployeeTableQuery = "CREATE TABLE " + TABLE_EMPLOYEE + " (" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_EMPLOYEE_NAME + " TEXT)";
+                COLUMN_EMPLOYEE_NAME + " TEXT, " +
+                COLUMN_EMPLOYEE_EMAIL + " TEXT, " +
+                COLUMN_EMPLOYEE_PASSWORD + " TEXT)" ;
         db.execSQL(createEmployeeTableQuery);
 
         // Create administrator table
         String createAdministratorTableQuery = "CREATE TABLE " + TABLE_ADMINISTRATOR + " (" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_ADMINISTRATOR_NAME + " TEXT)";
+                COLUMN_ADMINISTRATOR_NAME + " TEXT, " +
+                COLUMN_ADMINISTRATOR_EMAIL + " TEXT, " +
+                COLUMN_ADMINISTRATOR_PASSWORD + " TEXT)" ;
         db.execSQL(createAdministratorTableQuery);
 
         // Create leave table
@@ -97,18 +109,22 @@ public class LeaveDatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Method to insert a new employee
-    public long insertEmployee(String employeeName) {
+    public long insertEmployee(String employeeName,String employeeEmail,String employeePass) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_EMPLOYEE_NAME, employeeName);
+        values.put(COLUMN_EMPLOYEE_EMAIL,employeeEmail);
+        values.put(COLUMN_EMPLOYEE_PASSWORD, employeePass);
         return db.insert(TABLE_EMPLOYEE, null, values);
     }
 
     // Method to insert a new administrator
-    public long insertAdministrator(String administratorName) {
+    public long insertAdministrator(String administratorName,String administratorEmail,String administratorPass) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_ADMINISTRATOR_NAME, administratorName);
+        values.put(COLUMN_ADMINISTRATOR_EMAIL, administratorEmail);
+        values.put(COLUMN_ADMINISTRATOR_PASSWORD, administratorPass);
         return db.insert(TABLE_ADMINISTRATOR, null, values);
     }
 
@@ -301,6 +317,50 @@ public class LeaveDatabaseHelper extends SQLiteOpenHelper {
 
         cursor.close();
         return employeeList;
+    }
+    // Method to check if an employee login and save their ID in SharedPreferences
+    public boolean checkEmployeeLogin(String email, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_EMPLOYEE +
+                " WHERE " + COLUMN_EMPLOYEE_EMAIL + " = ? AND " + COLUMN_EMPLOYEE_PASSWORD + " = ?";
+        String[] selectionArgs = {email, password};
+        Cursor cursor = db.rawQuery(selectQuery, selectionArgs);
+
+        boolean employeeExists = cursor.moveToFirst();
+        if (employeeExists) {
+            int employeeId = cursor.getInt(cursor.getColumnIndex(COLUMN_ID));
+            // Save employee ID in SharedPreferences
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putInt("EMPLOYEE_ID", employeeId);
+            editor.apply();
+        }
+
+        cursor.close();
+        return employeeExists;
+    }
+
+
+    // Method to check if an administrator login and save their ID in SharedPreferences
+    public boolean checkAdministratorLogin(String email, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_ADMINISTRATOR +
+                " WHERE " + COLUMN_ADMINISTRATOR_EMAIL + " = ? AND " + COLUMN_ADMINISTRATOR_PASSWORD + " = ?";
+        String[] selectionArgs = {email, password};
+        Cursor cursor = db.rawQuery(selectQuery, selectionArgs);
+
+        boolean administratorExists = cursor.moveToFirst();
+        if (administratorExists) {
+            int administratorId = cursor.getInt(cursor.getColumnIndex(COLUMN_ID));
+            // Save administrator ID in SharedPreferences
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putInt("ADMINISTRATOR_ID", administratorId);
+            editor.apply();
+        }
+
+        cursor.close();
+        return administratorExists;
     }
 
 

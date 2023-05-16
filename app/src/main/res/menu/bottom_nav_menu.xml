@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/ic_baseline_home_24"/>
+    <item android:id="@+id/donnee"
+        android:title="Donnee"
+        android:icon="@drawable/ic_baseline_toc_24"/>
+    <item android:id="@+id/Message"
+        android:title="message"
+        android:icon="@drawable/ic_baseline_near_me_24"/>
+    <item android:id="@+id/Profil"
+        android:title="profil"
+        android:icon="@drawable/ic_baseline_login_24"/>
+    <item android:id="@+id/Deconexion"
+        android:title="deconexion"
+        android:icon="@drawable/ic_baseline_login_24"/>
+</menu>

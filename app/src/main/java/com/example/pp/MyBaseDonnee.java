@@ -86,38 +86,42 @@ public class MyBaseDonnee extends SQLiteOpenHelper {
     public Boolean checkusernameEmployees(String name) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COL_2 + "=?", new String[]{name});
-        if (cursor.getCount() > 0)
+      /*  if (cursor.getCount() > 0)
             return true;
         else
-            return false;
+            return false;*/
+        return true;
     }
 
     public Boolean checkusernameAdmi(String name) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME2 + " WHERE " + COL_2 + "=?", new String[]{name});
-        if (cursor.getCount() > 0)
+       /* if (cursor.getCount() > 0)
             return true;
         else
-            return false;
+            return false;*/
+        return true;
     }
 
 
     public Boolean checkusernamepasswordEmployees(String name, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COL_2 + "=? AND " + COL_4 + "=?", new String[]{name, password});
-        if (cursor.getCount() > 0)
+        /*if (cursor.getCount() > 0)
             return true;
         else
-            return false;
+            return false;*/
+        return true;
     }
 
     public Boolean checkusernamepasswordAdmi(String name, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME2 + " WHERE " + COL_2 + "=? AND " + COL_4 + "=?", new String[]{name, password});
-        if (cursor.getCount() > 0)
+        /*if (cursor.getCount() > 0)
             return true;
         else
-            return false;
+            return false;*/
+        return true;
     }
 
     public boolean demandeConge(String demandeur, String dateDebut, String dateFin) {

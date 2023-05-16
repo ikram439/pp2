@@ -14,35 +14,7 @@
         android:theme="@style/Theme.Pp"
         tools:targetApi="31">
         <activity
-            android:name=".activities.AbsenceActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".activities.profil_admin"
-            android:exported="false" />
-        <activity
-            android:name=".activities.profil_employes"
-            android:exported="false" />
-        <activity
-            android:name=".activities.message_admin"
-            android:exported="false" />
-        <activity
-            android:name=".activities.message_employes"
-            android:exported="false" />
-        <activity
-            android:name=".activities.donnee_admin"
-            android:exported="false" />
-        <activity
-            android:name=".activities.donnee_employes"
-            android:exported="false" />
-        <activity
-            android:name=".activities.acueil_admin"
-            android:exported="false" />
-        <activity
-            android:name=".activities.acueil_employer"
+            android:name=".activities.demande_conge"
             android:exported="false" />
         <activity
             android:name=".activities.home_admin"

@@ -4,60 +4,59 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
+import android.view.MenuItem;
 
+import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.example.pp.R;
 
 public class home_admin extends AppCompatActivity {
-    ImageButton home,donnee,message,profil,deconnexion;
 
+    BottomNavigationView bottomNavigationView;
+
+    HomeAdminFragment homeFragment = new HomeAdminFragment();
+    DonneAdminFragment donneFragment = new DonneAdminFragment();
+    MessageFragmentAdmin messageFragment = new MessageFragmentAdmin();
+    ProfilFragmentAdmin profilFragment = new ProfilFragmentAdmin();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_admin);
 
-        home = findViewById(R.id.home);
-        donnee = findViewById(R.id.donnee);
-        message = findViewById(R.id.message);
-        profil = findViewById(R.id.profil);
-        deconnexion = findViewById(R.id.deconnexion);
+        bottomNavigationView  = findViewById(R.id.bottom_navigation);
 
-        home.setOnClickListener(new View.OnClickListener() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
+
+        BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.Message);
+        badgeDrawable.setVisible(true);
+        badgeDrawable.setNumber(8);
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(home_admin.this, acueil_admin.class);
-                startActivity(intent);
+            public boolean onNavigationItemSelected(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.home:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
+                        return true;
+                    case R.id.donnee:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container,donneFragment).commit();
+                        return true;
+                    case R.id.Message:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container,messageFragment).commit();
+                        return true;
+                    case R.id.Profil:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container,profilFragment).commit();
+                        return true;
+
+                    case R.id.Deconexion:
+                        Intent intent=new Intent(home_admin.this,login_admin.class);
+                        startActivity(intent);
+                }
+
+                return false;
             }
         });
-
-
-        donnee.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(home_admin.this, donnee_admin.class);
-                startActivity(intent);
-            }
-        });
-
-
-        message.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(home_admin.this, message_admin.class);
-                startActivity(intent);
-            }
-        });
-
-
-        profil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(home_admin.this, profil_admin.class);
-                startActivity(intent);
-            }
-        });
-
 
     }
 }
