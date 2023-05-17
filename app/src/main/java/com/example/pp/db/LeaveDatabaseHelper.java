@@ -129,7 +129,7 @@ public class LeaveDatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Method to insert a new leave record
-    public long insertLeave(int employeeId, String leaveType, String startDate, String endDate) {
+    public boolean insertLeave(int employeeId, String leaveType, String startDate, String endDate) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_EMPLOYEE_ID, employeeId);
@@ -137,17 +137,19 @@ public class LeaveDatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_START_DATE, startDate);
         values.put(COLUMN_END_DATE, endDate);
         values.put(COLUMN_LEAVE_STATUS, "pending");
-        return db.insert(TABLE_LEAVE, null, values);
+        long l=db.insert(TABLE_LEAVE, null, values);
+        return l > 0;
     }
 
     // Method to insert a new absence record
-    public long insertAbsence(int employeeId, String absenceDate, String absenceReason) {
+    public boolean insertAbsence(int employeeId, String absenceDate, String absenceReason) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_EMPLOYEE_ID, employeeId);
         values.put(COLUMN_ABSENCE_DATE, absenceDate);
         values.put(COLUMN_ABSENCE_REASON, absenceReason);
-        return db.insert(TABLE_ABSENCE, null, values);
+        long l=db.insert(TABLE_ABSENCE, null, values);
+        return l > 0;
     }
 
     // Method to retrieve all leave records for a specific employee

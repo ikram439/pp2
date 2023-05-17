@@ -12,17 +12,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pp.MyBaseDonnee;
 import com.example.pp.R;
+import com.example.pp.db.LeaveDatabaseHelper;
 
 public class login_employees extends AppCompatActivity {
     TextView signin;
     EditText name,password;
     Button btn1 ;
-    MyBaseDonnee db ;
+    LeaveDatabaseHelper db ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_employees);
-        db = new MyBaseDonnee(this);
+        db = new LeaveDatabaseHelper(this);
         name=findViewById(R.id.login);
         password=findViewById(R.id.password);
         btn1 = findViewById(R.id.button);
@@ -36,8 +37,8 @@ public class login_employees extends AppCompatActivity {
                     if(log.equals("")||pass.equals(""))
                         Toast.makeText(login_employees.this,"Please enter all the fields",Toast.LENGTH_SHORT).show();
                     else{
-                        Boolean checkuserpass=db.checkusernamepasswordEmployees(log,pass);
-                        if (checkuserpass==true){
+                        boolean checkuserpass=db.checkEmployeeLogin(log,pass);
+                        if (checkuserpass){
                             Toast.makeText(login_employees.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(getApplicationContext(),home_employes.class);
                             startActivity(intent);

@@ -33,7 +33,7 @@
             android:textColorHighlight="@color/gris" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/startDate"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -50,7 +50,7 @@
             />
 
         <EditText
-            android:id="@+id/Confpassword"
+            android:id="@+id/endDate"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -65,7 +65,7 @@
             android:textColorHighlight="@color/gris" />
 
         <EditText
-            android:id="@+id/mail"
+            android:id="@+id/leaveType"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -79,7 +79,7 @@
             android:textColorHighlight="@color/gris" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/sendLeaveBtn"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
